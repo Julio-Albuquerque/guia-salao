@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guia do Salão Maré Mansa | Amostra Kaissara</title>
+<meta name="description" content="Guia digital completo de um salão de beleza: serviços e preços, agendamento pelo WhatsApp, cuidados com o cabelo, equipe, regras e horários. Amostra criada pela Kaissara.">
+<meta name="theme-color" content="#4E2F22">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   GUIA DIGITAL DE SALÃO — amostra Kaissara
+   Para adaptar a um cliente: troque os dados no bloco CONFIG
+   e nas listas do <script> no fim do arquivo.
+   ========================================================= */
+:root{
+  --mar:#4E2F22;        /* terra escuro */
+  --mar-2:#6A4231;
+  --nevoa:#FCEFE9;      /* salmão bem claro (fundo) */
+  --papel:#FFFFFF;
+  --mel:#D4AF5A;        /* dourado */
+  --mel-claro:#F5E6C4;
+  --ameixa:#C4604A;
+  --texto:#2E1F18;
+  --suave:#75625A;
+  --linha:#EAD6CC;
+  --raio:18px;
+  --display:"Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+  --corpo:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+html{overflow-x:hidden}
+html,body{max-width:100%;overflow-x:clip}
+body{margin:0;background:var(--nevoa);color:var(--texto);font-family:var(--corpo);font-size:17px;line-height:1.55;padding-bottom:84px}
+h1,h2,h3{font-family:var(--display);line-height:1.05;margin:0;letter-spacing:-.02em}
+h2{font-size:clamp(1.9rem,5vw,2.9rem);font-weight:800}
+h3{font-size:1.2rem;font-weight:600;letter-spacing:-.01em}
+p{margin:0}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--mel);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+.intro{color:var(--suave);max-width:58ch;margin-top:12px}
+
+/* aviso de demonstração */
+.demo{background:var(--mel);color:#2a1e00;font-size:.88rem;text-align:center;padding:8px 16px;font-weight:500}
+.demo a{font-weight:700}
+
+/* hero */
+.hero{background:var(--mar);color:#FFF6F1;position:relative;overflow:hidden}
+.hero .capa{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;background:rgba(62,36,26,.82)}
+@media(min-width:800px){.hero::after{background:linear-gradient(90deg,rgba(62,36,26,.95) 0%,rgba(62,36,26,.8) 48%,rgba(62,36,26,.3) 100%)}}
+.hero-in{position:relative;z-index:2;padding:56px 20px 64px;max-width:1040px;margin:0 auto}
+.marca{font-family:var(--display);font-weight:600;font-size:1.05rem;display:flex;align-items:center;gap:10px}
+.marca i{width:30px;height:30px;border-radius:50%;background:var(--mel);display:inline-block;position:relative}
+.marca i::after{content:"";position:absolute;inset:7px 7px 7px 13px;border-radius:50%;background:var(--mar)}
+.hero h1{font-size:clamp(2.9rem,11vw,6.2rem);font-weight:800;max-width:11ch;margin-top:44px}
+.hero .sub{max-width:44ch;margin-top:20px;color:#F1DDD3;font-size:1.1rem}
+.status{display:inline-flex;align-items:center;gap:8px;margin-top:26px;background:rgba(255,255,255,.1);padding:8px 14px;border-radius:99px;font-size:.95rem}
+.status b{width:10px;height:10px;border-radius:50%;background:#8A9; flex:none}
+.status.aberto b{background:#7BE29A}
+.status.fechado b{background:#F08C7D}
+.acoes{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:99px;padding:14px 22px;font-weight:700;text-decoration:none;background:var(--mel);color:#2a1e00}
+.btn:hover{background:#E0BF73}
+.btn.linha{background:transparent;color:inherit;box-shadow:inset 0 0 0 2px currentColor}
+.btn.linha:hover{background:rgba(255,255,255,.08)}
+.btn.escuro{background:var(--mar);color:#fff}
+.btn.escuro:hover{background:var(--mar-2)}
+
+/* navegação */
+.nav{position:sticky;top:0;z-index:20;background:rgba(252,239,233,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--linha)}
+.nav ul{display:flex;gap:6px;list-style:none;margin:0 auto;padding:10px 20px;max-width:1040px;overflow-x:auto;scrollbar-width:none}
+.nav ul::-webkit-scrollbar{display:none}
+.nav a{display:block;white-space:nowrap;text-decoration:none;padding:7px 14px;border-radius:99px;font-weight:600;font-size:.93rem;color:var(--suave)}
+.nav a:hover,.nav a.ativo{background:var(--mar);color:#fff}
+
+section{padding:64px 0}
+section.branco{background:var(--papel)}
+
+/* fotos */
+figure{margin:0}
+.foto{border-radius:var(--raio);overflow:hidden;background:var(--linha)}
+.foto img{display:block;width:100%;height:100%;object-fit:cover}
+.galeria{display:grid;gap:10px;grid-template-columns:repeat(2,1fr);margin-top:30px}
+.galeria .foto{aspect-ratio:4/5}
+.galeria .larga{grid-column:span 2;aspect-ratio:8/5}
+@media(min-width:800px){.galeria{grid-template-columns:repeat(4,1fr);gap:14px}.galeria .larga{grid-row:span 2;aspect-ratio:auto}}
+.cab{display:grid;gap:24px}
+.cab .foto{aspect-ratio:16/9}
+@media(min-width:800px){.cab{grid-template-columns:1fr 380px;align-items:end;gap:48px}.cab .foto{aspect-ratio:4/3}}
+.creditos{font-size:.8rem}
+
+/* primeira visita */
+.passos{list-style:none;margin:32px 0 0;padding:0;display:grid;gap:0;counter-reset:p}
+.passos li{counter-increment:p;display:grid;grid-template-columns:54px 1fr;gap:16px;padding:20px 0;border-top:1px solid var(--linha)}
+.passos li::before{content:counter(p);font-family:var(--display);font-weight:800;font-size:2.2rem;line-height:1;color:var(--ameixa)}
+.passos p{color:var(--suave);margin-top:4px}
+@media(min-width:800px){.passos{grid-template-columns:1fr 1fr;column-gap:48px}}
+
+/* serviços */
+.abas{display:flex;gap:8px;overflow-x:auto;margin:28px -20px 0;padding:4px 20px 12px;scrollbar-width:none}
+.abas::-webkit-scrollbar{display:none}
+.aba{white-space:nowrap;border:1.5px solid var(--linha);background:var(--papel);border-radius:99px;padding:9px 16px;font-weight:600}
+.aba[aria-selected="true"]{background:var(--ameixa);border-color:var(--ameixa);color:#fff}
+.busca{width:100%;max-width:420px;margin-top:24px;padding:13px 16px;border-radius:12px;border:1.5px solid var(--linha);font:inherit;background:var(--papel)}
+.lista{list-style:none;margin:8px 0 0;padding:0}
+.serv{display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:14px;padding:16px 0;border-bottom:1px solid var(--linha)}
+.serv .nome{font-weight:600}
+.serv .det{color:var(--suave);font-size:.92rem}
+.serv .preco{font-family:var(--display);font-weight:600;font-size:1.1rem;text-align:right;white-space:nowrap}
+.serv .preco small{display:block;font-family:var(--corpo);font-weight:400;font-size:.75rem;color:var(--suave)}
+.mais{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--mar);background:transparent;font-size:1.4rem;line-height:1;display:grid;place-items:center;transition:transform .15s}
+.mais[aria-pressed="true"]{background:var(--mar);color:#fff;transform:rotate(45deg)}
+.vazio{padding:28px 0;color:var(--suave)}
+.nota{font-size:.9rem;color:var(--suave);margin-top:18px;max-width:62ch}
+
+/* cuidados */
+.tipos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:28px;max-width:560px}
+.tipo{min-width:0;border:1.5px solid var(--linha);background:var(--nevoa);border-radius:var(--raio);padding:12px 6px 10px;font-weight:600;font-size:.92rem;display:grid;justify-items:center;gap:6px}
+.tipo svg{width:38px;height:46px;stroke:var(--ameixa);fill:none;stroke-width:3;stroke-linecap:round}
+.tipo[aria-selected="true"]{background:var(--mel-claro);border-color:var(--mel)}
+.rotina{margin-top:22px;display:grid;gap:14px}
+@media(min-width:760px){.rotina{grid-template-columns:repeat(2,1fr)}}
+.rotina div{background:var(--nevoa);border-radius:var(--raio);padding:20px 22px}
+.rotina div.evite{background:var(--ameixa);color:#fff}
+.rotina p{margin-top:6px;color:var(--suave)}
+.rotina .evite p{color:#FDE9E2}
+
+/* cronograma */
+.crono{width:100%;table-layout:fixed;border-collapse:separate;border-spacing:6px;margin-top:26px;max-width:640px}
+.crono th:first-child{width:52px}
+.crono th{font-weight:600;font-size:.88rem;color:var(--suave);text-align:left;padding:4px 6px}
+.crono td{padding:14px 10px;border-radius:12px;font-weight:600;font-size:.95rem;text-align:center}
+.crono td.h{background:#FAD3C5}
+.crono td.n{background:var(--mel-claro)}
+.crono td.r{background:#E6C9B8}
+@media(max-width:560px){.crono{border-spacing:4px}.crono td{padding:12px 2px;font-size:.76rem}.crono th{font-size:.74rem;padding:4px 2px}.crono th:first-child{width:38px}}
+.legenda{display:grid;gap:10px;margin-top:20px;max-width:62ch}
+.legenda b{font-family:var(--display)}
+
+/* equipe */
+.equipe{display:grid;gap:14px;margin-top:30px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.pessoa{background:var(--nevoa);border-radius:var(--raio);padding:22px}
+.pessoa .av{width:64px;height:64px;border-radius:50% 50% 50% 8px;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:1.4rem;color:#fff;margin-bottom:14px}
+.pessoa p{color:var(--suave);font-size:.95rem;margin-top:6px}
+.pessoa .dias{margin-top:10px;font-size:.88rem;font-weight:600;color:var(--texto)}
+
+/* acordeões */
+.acc{margin-top:26px;max-width:760px}
+details{border-bottom:1px solid var(--linha)}
+summary{list-style:none;cursor:pointer;padding:18px 40px 18px 0;font-weight:600;position:relative;font-size:1.05rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:6px;top:12px;font-family:var(--display);font-size:1.7rem;font-weight:400;color:var(--ameixa);transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details .corpo{padding:0 0 20px;color:var(--suave);max-width:64ch}
+details ul{margin:0;padding-left:20px}
+details li{margin:6px 0}
+
+/* regras */
+.regras{display:grid;gap:0;margin-top:26px;max-width:760px}
+.regras div{display:grid;grid-template-columns:130px 1fr;gap:16px;padding:16px 0;border-top:1px solid var(--linha)}
+.regras dt,.regras strong{font-family:var(--display);font-weight:600}
+.regras span{color:var(--suave)}
+@media(max-width:520px){.regras div{grid-template-columns:1fr;gap:2px}}
+
+/* horários */
+.onde{display:grid;gap:28px;margin-top:30px}
+@media(min-width:800px){.onde{grid-template-columns:1fr 1fr;gap:56px}}
+.horas{width:100%;border-collapse:collapse}
+.horas td{padding:11px 0;border-bottom:1px solid rgba(255,255,255,.16)}
+.horas td:last-child{text-align:right;font-weight:600}
+.horas tr.hoje td{color:var(--mel)}
+.escuro-sec{background:var(--mar);color:#FFF6F1}
+.escuro-sec .intro{color:#F1DDD3}
+.info p{margin-bottom:16px;color:#F1DDD3}
+.info strong{display:block;color:#fff;font-family:var(--display);font-weight:600}
+
+/* rodapé */
+footer{background:var(--mel-claro);padding:48px 0 56px}
+footer h2{font-size:clamp(1.6rem,4.4vw,2.3rem);max-width:18ch}
+footer p{margin:12px 0 22px;max-width:54ch}
+footer small{display:block;margin-top:26px;color:#5c4a1c}
+
+/* barra de agendamento */
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--papel);border-top:1px solid var(--linha);box-shadow:0 -8px 24px rgba(62,36,26,.1)}
+.barra-in{max-width:1040px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.barra .res{font-size:.93rem;line-height:1.3}
+.barra .res strong{display:block;font-family:var(--display);font-size:1.05rem}
+.barra .btn{padding:12px 18px;white-space:nowrap}
+@media(max-width:430px){.barra-in{padding:10px 14px}.barra .btn{padding:12px 14px;font-size:.9rem}.barra .res{font-size:.85rem}.barra .res strong{font-size:.95rem}}
+
+/* diálogo */
+dialog{border:0;border-radius:22px;padding:0;width:min(520px,calc(100% - 24px));max-height:90vh;color:var(--texto)}
+dialog::backdrop{background:rgba(62,36,26,.55)}
+.dlg{padding:26px 24px 24px}
+.dlg h2{font-size:1.7rem}
+.dlg ul{list-style:none;padding:0;margin:16px 0}
+.dlg li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--linha)}
+.dlg li button{border:0;background:none;color:var(--ameixa);text-decoration:underline;font-size:.88rem;padding:0;margin-left:8px}
+.dlg .total{display:flex;justify-content:space-between;font-family:var(--display);font-weight:600;font-size:1.15rem;margin-bottom:18px}
+.dlg label{display:block;font-weight:600;font-size:.92rem;margin-top:12px}
+.dlg input,.dlg select{width:100%;min-width:0;margin-top:5px;padding:12px 14px;border-radius:12px;border:1.5px solid var(--linha);font:inherit;background:#fff}
+.dlg .duas{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+.dlg .acoes{margin-top:22px}
+.dlg .acoes .btn{flex:1}
+.dlg .fechar{background:none;border:0;text-decoration:underline;color:var(--suave);padding:14px 8px}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important}
+}
+@media print{.nav,.barra,.demo,.acoes{display:none}body{padding:0}details .corpo{display:block}}
+</style>
+</head>
+<body>
+
+<div class="demo">Salão fictício, criado como amostra de guia digital pela <a href="#kaissara">Kaissara</a>.</div>
+
+<header class="hero">
+  <img class="capa" src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&w=1800&q=70" alt="" onerror="this.remove()">
+  <div class="hero-in">
+    <div class="marca"><i></i><span>Maré Mansa, cabelo e cuidado</span></div>
+    <h1>O guia do seu dia de salão</h1>
+    <p class="sub">Tudo o que você precisa antes de sentar na cadeira: serviços, valores, cuidados em casa e agendamento em dois toques.</p>
+    <div class="status" id="status" role="status"><b></b><span>Conferindo o horário</span></div>
+    <div class="acoes">
+      <a class="btn" href="#servicos">Ver serviços e preços</a>
+      <a class="btn linha" href="#onde">Horários e endereço</a>
+    </div>
+  </div>
+</header>
+
+<nav class="nav" aria-label="Seções do guia">
+  <ul>
+    <li><a href="#visita">Primeira visita</a></li>
+    <li><a href="#espaco">O espaço</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#cuidados">Cuidados em casa</a></li>
+    <li><a href="#cronograma">Cronograma capilar</a></li>
+    <li><a href="#equipe">Equipe</a></li>
+    <li><a href="#preparo">Antes e depois</a></li>
+    <li><a href="#regras">Regras da casa</a></li>
+    <li><a href="#duvidas">Dúvidas</a></li>
+    <li><a href="#onde">Onde e quando</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<section id="visita">
+  <div class="wrap">
+    <h2>Sua primeira visita</h2>
+    <p class="intro">Do pedido de horário até a saída, é assim que funciona.</p>
+    <ol class="passos">
+      <li><div><h3>Escolha os serviços</h3><p>Toque no + ao lado de cada serviço na lista abaixo. O guia soma o valor inicial e o tempo.</p></div></li>
+      <li><div><h3>Peça o horário pelo WhatsApp</h3><p>O pedido chega pronto para a recepção, com seu nome e o dia que prefere. Respondemos em horário de atendimento.</p></div></li>
+      <li><div><h3>Chegue 10 minutos antes</h3><p>Dá tempo de tomar um café e conversar com calma sobre o que você quer.</p></div></li>
+      <li><div><h3>Avaliação na cadeira</h3><p>Antes de começar, a profissional avalia o fio e confirma o valor final. Nada é feito sem o seu ok.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section id="espaco" class="branco">
+  <div class="wrap">
+    <h2>O espaço</h2>
+    <p class="intro">Luz natural, bancadas individuais e um lavatório em que dá vontade de ficar.</p>
+    <div class="galeria">
+      <figure class="foto larga"><img loading="lazy" src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1400&q=70" alt="Bancada branca com espelho grande e três cadeiras cor de vinho" onerror="this.parentNode.remove()"></figure>
+      <figure class="foto"><img loading="lazy" src="https://images.unsplash.com/photo-1637777269327-c4d5c7944d7b?auto=format&fit=crop&w=800&q=70" alt="Fileira de lavatórios em preto e branco" onerror="this.parentNode.remove()"></figure>
+      <figure class="foto"><img loading="lazy" src="https://images.unsplash.com/photo-1788985375145-81da8cc731a2?auto=format&fit=crop&w=800&q=70" alt="Cadeira em frente a um espelho em arco iluminado" onerror="this.parentNode.remove()"></figure>
+      <figure class="foto"><img loading="lazy" src="https://images.unsplash.com/photo-1600948835780-9c4a8b55cf50?auto=format&fit=crop&w=1100&q=70" alt="Plantas sobre a bancada, com espelho redondo ao fundo" style="object-position:62% 50%" onerror="this.parentNode.remove()"></figure>
+      <figure class="foto"><img loading="lazy" src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&w=1300&q=70" alt="Cadeiras pretas diante de espelhos redondos em parede escura" style="object-position:0 50%" onerror="this.parentNode.remove()"></figure>
+    </div>
+  </div>
+</section>
+
+<section id="servicos">
+  <div class="wrap">
+    <div class="cab">
+      <div>
+        <h2>Serviços e preços</h2>
+        <p class="intro">Valores iniciais. Comprimento, volume e histórico de química podem alterar o preço, que é confirmado na avaliação.</p>
+      </div>
+      <figure class="foto"><img loading="lazy" src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?auto=format&fit=crop&w=900&q=70" alt="Cliente tendo o cabelo lavado no lavatório" onerror="this.parentNode.remove()"></figure>
+    </div>
+    <input class="busca" id="busca" type="search" placeholder="Buscar serviço, por exemplo: mechas" aria-label="Buscar serviço">
+    <div class="abas" id="abas" role="tablist" aria-label="Categorias"></div>
+    <ul class="lista" id="lista"></ul>
+    <p class="nota">Pacotes: 3 hidratações com 10% de desconto. Coloração e escova no mesmo dia, a escova sai pela metade.</p>
+  </div>
+</section>
+
+<section id="cuidados" class="branco">
+  <div class="wrap">
+    <div class="cab">
+      <div>
+        <h2>Cuidados em casa</h2>
+        <p class="intro">Escolha a curvatura do seu cabelo para ver a rotina que mais combina com ele.</p>
+      </div>
+      <figure class="foto"><img loading="lazy" src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=70" alt="Cabelo sendo escovado com secador e escova redonda" onerror="this.parentNode.remove()"></figure>
+    </div>
+    <div class="tipos" id="tipos" role="tablist" aria-label="Tipo de cabelo"></div>
+    <div class="rotina" id="rotina" aria-live="polite"></div>
+  </div>
+</section>
+
+<section id="cronograma">
+  <div class="wrap">
+    <h2>Cronograma capilar</h2>
+    <p class="intro">Quatro semanas alternando o que o fio precisa. Este é o modelo para cabelo com química ou ressecado; na avaliação a gente ajusta para o seu.</p>
+    <table class="crono">
+      <thead><tr><th>Semana</th><th>Lavagem 1</th><th>Lavagem 2</th><th>Lavagem 3</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">1</th><td class="h">Hidratação</td><td class="n">Nutrição</td><td class="h">Hidratação</td></tr>
+        <tr><th scope="row">2</th><td class="h">Hidratação</td><td class="n">Nutrição</td><td class="r">Reconstrução</td></tr>
+        <tr><th scope="row">3</th><td class="h">Hidratação</td><td class="n">Nutrição</td><td class="h">Hidratação</td></tr>
+        <tr><th scope="row">4</th><td class="h">Hidratação</td><td class="n">Nutrição</td><td class="r">Reconstrução</td></tr>
+      </tbody>
+    </table>
+    <div class="legenda">
+      <p><b>Hidratação</b> repõe água. Para fio opaco, áspero e sem balanço.</p>
+      <p><b>Nutrição</b> repõe óleos. Para frizz, pontas secas e falta de brilho.</p>
+      <p><b>Reconstrução</b> repõe proteína. Para fio elástico, quebradiço ou recém-descolorido. Em excesso enrijece, por isso aparece menos.</p>
+    </div>
+  </div>
+</section>
+
+<section id="equipe" class="branco">
+  <div class="wrap">
+    <h2>Quem cuida de você</h2>
+    <p class="intro">No pedido de horário, diga com quem prefere ser atendida.</p>
+    <div class="equipe" id="equipeLista"></div>
+  </div>
+</section>
+
+<section id="preparo">
+  <div class="wrap">
+    <h2>Antes e depois de cada serviço</h2>
+    <p class="intro">Pequenos cuidados que fazem o resultado durar mais.</p>
+    <div class="acc">
+      <details open>
+        <summary>Coloração e mechas</summary>
+        <div class="corpo"><ul>
+          <li>Venha com o cabelo sem lavar há um dia. A oleosidade natural protege o couro cabeludo.</li>
+          <li>Conte tudo o que já passou no fio nos últimos dois anos, inclusive henna e tintura de farmácia.</li>
+          <li>Fazemos teste de mecha e de sensibilidade 48 horas antes na primeira coloração.</li>
+          <li>Depois: espere 48 horas para lavar, use xampu sem sulfato e água morna ou fria.</li>
+          <li>Loiras: matizador uma vez por semana, no máximo.</li>
+        </ul></div>
+      </details>
+      <details>
+        <summary>Progressiva e alisamentos</summary>
+        <div class="corpo"><ul>
+          <li>Trabalhamos apenas com produtos sem formol e regularizados.</li>
+          <li>Não fazemos em gestantes, lactantes e menores de 16 anos.</li>
+          <li>Depois: evite prender ou colocar atrás da orelha nas primeiras 24 horas.</li>
+          <li>Mar e piscina reduzem a duração. Molhe o cabelo com água doce e passe leave-in antes de entrar.</li>
+        </ul></div>
+      </details>
+      <details>
+        <summary>Corte</summary>
+        <div class="corpo"><ul>
+          <li>Traga fotos de referência, do que gosta e do que não gosta.</li>
+          <li>Cacheadas e crespas: venha com o cabelo seco, definido e sem prender, para cortarmos na forma natural.</li>
+          <li>Retoque de franja em até 15 dias é cortesia.</li>
+        </ul></div>
+      </details>
+      <details>
+        <summary>Unhas</summary>
+        <div class="corpo"><ul>
+          <li>Material esterilizado em autoclave e lixas descartáveis, abertos na sua frente.</li>
+          <li>Esmaltação em gel dura em média 15 a 20 dias. A remoção é feita aqui, nunca puxe em casa.</li>
+          <li>Óleo de cutícula todos os dias mantém o acabamento.</li>
+        </ul></div>
+      </details>
+      <details>
+        <summary>Noivas e madrinhas</summary>
+        <div class="corpo"><ul>
+          <li>Reserve a data com pelo menos 60 dias de antecedência.</li>
+          <li>O teste de penteado e maquiagem acontece até 30 dias antes. Traga o véu, a tiara ou o acessório.</li>
+          <li>No dia, venha com camisa de botão e cabelo lavado na véspera.</li>
+        </ul></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="regras" class="branco">
+  <div class="wrap">
+    <h2>Regras da casa</h2>
+    <p class="intro">Combinados simples para o horário de todo mundo ser respeitado.</p>
+    <div class="regras">
+      <div><strong>Atraso</strong><span>Tolerância de 15 minutos. Depois disso, pode ser preciso remarcar ou reduzir o serviço.</span></div>
+      <div><strong>Cancelamento</strong><span>Avise com 24 horas de antecedência pelo WhatsApp para liberarmos o horário.</span></div>
+      <div><strong>Sinal</strong><span>Serviços acima de 3 horas e dia da noiva pedem sinal de 30%, descontado no final.</span></div>
+      <div><strong>Pagamento</strong><span>Pix, dinheiro, débito e crédito. Parcelamos em até 3 vezes acima de R$ 300.</span></div>
+      <div><strong>Garantia</strong><span>Não ficou como combinado? Fale com a gente em até 7 dias e ajustamos sem custo.</span></div>
+      <div><strong>Crianças</strong><span>São bem-vindas. Temos cantinho com livros e lápis de cor.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="duvidas">
+  <div class="wrap">
+    <h2>Dúvidas frequentes</h2>
+    <div class="acc">
+      <details><summary>Preciso agendar ou posso chegar direto?</summary><div class="corpo">Atendemos por ordem de agenda. Sem horário marcado, encaixamos só se houver vaga no dia.</div></details>
+      <details><summary>Por que o preço é “a partir de”?</summary><div class="corpo">Porque a quantidade de produto e o tempo mudam com o comprimento e o volume. O valor final é dito na avaliação, antes de começar.</div></details>
+      <details><summary>Posso levar meu próprio produto?</summary><div class="corpo">Pode, para hidratação e finalização. Em coloração e alisamento usamos apenas os produtos do salão, por segurança.</div></details>
+      <details><summary>Dá para clarear cabelo com tintura escura em um dia?</summary><div class="corpo">Depende do histórico do fio. Muitas vezes o processo é feito em etapas para preservar a saúde do cabelo. A avaliação é gratuita.</div></details>
+      <details><summary>Tem estacionamento?</summary><div class="corpo">Há vagas na rua em frente e bicicletário na calçada.</div></details>
+      <details><summary>O salão é acessível?</summary><div class="corpo">Entrada em nível, lavatório com apoio regulável e banheiro adaptado.</div></details>
+    </div>
+  </div>
+</section>
+
+<section id="onde" class="escuro-sec">
+  <div class="wrap">
+    <h2>Onde e quando</h2>
+    <div class="onde">
+      <table class="horas" id="horas" aria-label="Horário de funcionamento"></table>
+      <div class="info">
+        <p><strong>Endereço</strong><span id="endereco"></span></p>
+        <p><strong>Como chegar</strong>A duas quadras da praça central, ao lado da padaria. Ponto de ônibus na esquina.</p>
+        <p><strong>Contato</strong>Agendamento e dúvidas pelo WhatsApp. Não atendemos ligações durante os serviços.</p>
+        <a class="btn" id="falar" target="_blank" rel="noopener">Falar no WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer id="kaissara">
+  <div class="wrap">
+    <h2>Quer um guia assim para o seu negócio?</h2>
+    <p>Este é um modelo feito pela Kaissara. O Salão Maré Mansa, a equipe, os preços e o endereço são fictícios. O seu guia leva a sua marca, os seus serviços e o seu WhatsApp, e abre em qualquer celular por um link ou QR code.</p>
+    <a class="btn escuro" id="querer" target="_blank" rel="noopener">Pedir um guia para o meu negócio</a>
+    <small>Feito por Kaissara.art, Ubatuba, SP</small>
+    <small class="creditos">Fotos ilustrativas de banco de imagens (Unsplash): Greg Trowman, Guilherme Petri, Giorgio Trovato, Benyamin Bohlouli, Emanuel Haas, Adam Winger e Lindsay Cash.</small>
+    <small class="creditos">Versão 1.3</small>
+  </div>
+</footer>
+
+<div class="barra" id="barra">
+  <div class="barra-in">
+    <div class="res" id="resumo"><strong>Monte seu horário</strong>Toque no + dos serviços</div>
+    <button class="btn" id="abrir">Agendar pelo WhatsApp</button>
+  </div>
+</div>
+
+<dialog id="dlg" aria-labelledby="dlgT">
+  <form class="dlg" method="dialog" id="form">
+    <h2 id="dlgT">Seu pedido de horário</h2>
+    <ul id="escolhidos"></ul>
+    <div class="total"><span>Estimativa</span><span id="total"></span></div>
+    <label>Seu nome<input id="nome" autocomplete="given-name" placeholder="Como podemos te chamar?"></label>
+    <div class="duas">
+      <label>Dia preferido<input id="dia" type="date"></label>
+      <label>Período<select id="periodo"><option>Manhã</option><option>Tarde</option><option>Tanto faz</option></select></label>
+    </div>
+    <label>Profissional<select id="prof"></select></label>
+    <div class="acoes">
+      <button class="btn" type="submit" value="enviar">Enviar pedido no WhatsApp</button>
+      <button class="fechar" type="submit" value="fechar">Voltar ao guia</button>
+    </div>
+  </form>
+</dialog>
+
+<script>
+/* ============ CONFIG: troque aqui para cada cliente ============ */
+const CONFIG = {
+  salao: "Salão Maré Mansa",
+  whatsappSalao: "5512991386160",   // nesta amostra, os pedidos caem no WhatsApp da Kaissara
+  whatsappKaissara: "5512991386160",
+  endereco: "Rua das Amendoeiras, 120, Centro, Ubatuba, SP (endereço fictício)",
+  fuso: "America/Sao_Paulo",
+  // 0 = domingo. null = fechado. Horas em formato decimal (9.5 = 9h30)
+  horarios: [null, null, [9,19], [9,19], [9,19], [9,19], [9,17]]
+};
+
+const CATEGORIAS = ["Cabelo","Cor","Tratamentos","Cachos e crespos","Unhas","Rosto","Noivas"];
+// [categoria, nome, minutos, preço a partir de (null = sob avaliação), detalhe]
+const SERVICOS = [
+  ["Cabelo","Corte feminino",60,80,"Lavagem e finalização simples inclusas"],
+  ["Cabelo","Corte masculino",40,50,"Tesoura ou máquina"],
+  ["Cabelo","Corte infantil",30,45,"Até 10 anos"],
+  ["Cabelo","Escova",45,55,"Lisa ou com volume"],
+  ["Cabelo","Escova modelada",60,75,"Com babyliss ou ondas"],
+  ["Cabelo","Penteado",75,150,"Preso, semipreso ou solto"],
+  ["Cor","Retoque de raiz",90,120,"Até 3 cm de raiz"],
+  ["Cor","Coloração completa",120,180,"Raiz, comprimento e pontas"],
+  ["Cor","Tonalizante",60,110,"Brilho e correção de tom, sem amônia"],
+  ["Cor","Mechas e luzes",240,380,"Inclui matização e tratamento"],
+  ["Cor","Morena iluminada",270,450,"Inclui matização e tratamento"],
+  ["Cor","Correção de cor",0,null,"Só após avaliação presencial"],
+  ["Tratamentos","Hidratação",40,70,"Reposição de água"],
+  ["Tratamentos","Nutrição",45,85,"Reposição de óleos"],
+  ["Tratamentos","Reconstrução",60,110,"Reposição de proteína"],
+  ["Tratamentos","Botox capilar",90,160,"Reduz volume e frizz"],
+  ["Tratamentos","Progressiva sem formol",150,220,"Dura de 2 a 4 meses"],
+  ["Tratamentos","Detox do couro cabeludo",40,90,"Esfoliação e massagem"],
+  ["Cachos e crespos","Corte a seco para cachos",75,110,"Feito na forma natural do fio"],
+  ["Cachos e crespos","Finalização com definição",60,80,"Fitagem e difusor"],
+  ["Cachos e crespos","Umectação",45,70,"Óleos vegetais"],
+  ["Cachos e crespos","Tranças e penteados afro",0,null,"Valor conforme o modelo"],
+  ["Unhas","Manicure",40,35,"Cutilagem e esmaltação"],
+  ["Unhas","Pedicure",50,40,"Cutilagem e esmaltação"],
+  ["Unhas","Mão e pé",90,70,"Combo"],
+  ["Unhas","Esmaltação em gel",60,90,"Dura de 15 a 20 dias"],
+  ["Unhas","Alongamento em fibra",120,180,"Manutenção a partir de R$ 110"],
+  ["Rosto","Design de sobrancelha",30,40,"Pinça e linha"],
+  ["Rosto","Design com henna",45,60,"Dura cerca de 7 dias na pele"],
+  ["Rosto","Maquiagem social",60,160,"Com cílios postiços"],
+  ["Noivas","Madrinha: penteado e maquiagem",120,290,"No salão"],
+  ["Noivas","Dia da noiva",0,null,"Pacote montado com você"]
+];
+
+const EQUIPE = [
+  ["Marina Duarte","Colorista e fundadora","Mechas, morena iluminada e correção de cor.","Terça a sábado","#C4604A"],
+  ["Jô Ribeiro","Cabeleireira","Cortes, escovas e penteados para festa.","Terça a sábado","#4E2F22"],
+  ["Thaís Nogueira","Especialista em cachos e crespos","Corte a seco, definição e transição capilar.","Quarta a sábado","#B8923A"],
+  ["Bia Santana","Manicure e designer de sobrancelha","Gel, fibra e design com henna.","Terça a sexta","#8A5A44"]
+];
+
+const TIPOS = {
+  Liso:{d:"M19 4 V44", lavar:"Dia sim, dia não. Xampu só na raiz, condicionador só do meio para as pontas.", tratar:"Hidratação leve a cada 15 dias. Máscaras pesadas tiram o movimento.", finalizar:"Protetor térmico antes do secador e uma gota de óleo nas pontas.", evite:"Dormir de cabelo molhado e passar condicionador na raiz."},
+  Ondulado:{d:"M19 4 C30 12 8 20 19 28 S30 40 19 44", lavar:"Duas a três vezes por semana, com xampu suave.", tratar:"Alterne hidratação e nutrição toda semana.", finalizar:"Creme leve ou mousse, amassando de baixo para cima. Seque com difusor.", evite:"Escovar a seco, que desmancha a onda e levanta frizz."},
+  Cacheado:{d:"M19 4 C34 8 4 14 19 18 S34 26 19 30 S4 40 19 44", lavar:"Duas vezes por semana. Entre lavagens, borrife água com um pouco de creme.", tratar:"Nutrição semanal e umectação com óleo vegetal a cada 15 dias.", finalizar:"Creme e gel com fitagem, mecha por mecha. Não mexa até secar.", evite:"Toalha felpuda. Prefira camiseta de algodão ou toalha de microfibra."},
+  Crespo:{d:"M19 4 L29 9 L9 14 L29 19 L9 24 L29 29 L9 34 L29 39 L19 44", lavar:"Uma vez por semana, com xampu sem sulfato ou co-wash.", tratar:"Umectação e nutrição toda semana. É o fio que mais pede óleo.", finalizar:"Creme denso, óleo e gel, nessa ordem. Desembarace com os dedos, sempre com creme.", evite:"Pentear seco e prender muito apertado, que quebra o fio na linha da testa."}
+};
+/* =============================================================== */
+
+const $ = s => document.querySelector(s);
+const brl = n => "R$ " + n.toLocaleString("pt-BR");
+const tempo = m => m ? (m >= 60 ? Math.floor(m/60) + "h" + (m%60 ? String(m%60).padStart(2,"0") : "") : m + " min") : "";
+const zap = (num, txt) => "https://wa.me/" + num + "?text=" + encodeURIComponent(txt);
+const sel = new Set();
+let catAtual = CATEGORIAS[0];
+
+/* aberto ou fechado */
+const DIAS = ["Domingo","Segunda","Terça","Quarta","Quinta","Sexta","Sábado"];
+const hfmt = h => Math.floor(h) + "h" + (h%1 ? String(Math.round(h%1*60)).padStart(2,"0") : "");
+function agora(){
+  const p = new Intl.DateTimeFormat("en-US",{timeZone:CONFIG.fuso,weekday:"short",hour:"numeric",minute:"numeric",hour12:false}).formatToParts(new Date());
+  const g = t => p.find(x=>x.type===t).value;
+  return {dia:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].indexOf(g("weekday")), hora:(+g("hour")%24) + (+g("minute"))/60};
+}
+(function(){
+  const {dia,hora} = agora(), h = CONFIG.horarios[dia], el = $("#status");
+  let txt;
+  if(h && hora >= h[0] && hora < h[1]){ el.classList.add("aberto"); txt = "Aberto agora, até " + hfmt(h[1]); }
+  else{
+    el.classList.add("fechado");
+    if(h && hora < h[0]) txt = "Fechado agora, abre hoje às " + hfmt(h[0]);
+    else{ let i = 1; while(!CONFIG.horarios[(dia+i)%7]) i++; const d = (dia+i)%7; txt = "Fechado agora, abre " + (i===1 ? "amanhã" : DIAS[d].toLowerCase()) + " às " + hfmt(CONFIG.horarios[d][0]); }
+  }
+  el.querySelector("span").textContent = txt;
+  $("#horas").innerHTML = [1,2,3,4,5,6,0].map(d=>'<tr'+(d===dia?' class="hoje"':'')+'><td>'+DIAS[d]+(d===dia?" (hoje)":"")+'</td><td>'+(CONFIG.horarios[d] ? hfmt(CONFIG.horarios[d][0])+" às "+hfmt(CONFIG.horarios[d][1]) : "Fechado")+'</td></tr>').join("");
+})();
+
+/* serviços */
+function desenharAbas(){
+  $("#abas").innerHTML = CATEGORIAS.map(c=>'<button class="aba" role="tab" aria-selected="'+(c===catAtual)+'" data-c="'+c+'">'+c+'</button>').join("");
+}
+function desenharLista(){
+  const q = $("#busca").value.trim().toLowerCase();
+  const itens = SERVICOS.map((s,i)=>({s,i})).filter(({s})=> q ? (s[1]+" "+s[4]+" "+s[0]).toLowerCase().includes(q) : s[0]===catAtual);
+  $("#abas").style.display = q ? "none" : "";
+  $("#lista").innerHTML = itens.length ? itens.map(({s,i})=>
+    '<li class="serv"><div><div class="nome">'+s[1]+'</div><div class="det">'+[s[4],tempo(s[2])].filter(Boolean).join(", ")+'</div></div>'+
+    '<div class="preco">'+(s[3]===null ? 'Sob avaliação' : '<small>a partir de</small>'+brl(s[3]))+'</div>'+
+    '<button class="mais" data-i="'+i+'" aria-pressed="'+sel.has(i)+'" aria-label="'+(sel.has(i)?"Remover ":"Adicionar ")+s[1]+'">+</button></li>').join("")
+    : '<li class="vazio">Nenhum serviço com esse nome. Tente outra palavra ou pergunte pelo WhatsApp.</li>';
+}
+$("#abas").addEventListener("click",e=>{const b=e.target.closest(".aba"); if(!b) return; catAtual=b.dataset.c; desenharAbas(); desenharLista();});
+$("#busca").addEventListener("input",desenharLista);
+$("#lista").addEventListener("click",e=>{const b=e.target.closest(".mais"); if(!b) return; const i=+b.dataset.i; sel.has(i)?sel.delete(i):sel.add(i); desenharLista(); resumo();});
+
+function soma(){
+  let v=0,m=0,aval=false;
+  sel.forEach(i=>{const s=SERVICOS[i]; if(s[3]===null) aval=true; else v+=s[3]; m+=s[2];});
+  return {v,m,aval};
+}
+function textoTotal(){
+  const {v,m,aval} = soma();
+  return (v ? "a partir de "+brl(v) : "sob avaliação") + (aval && v ? " + avaliação" : "") + (m ? ", cerca de "+tempo(m) : "");
+}
+function resumo(){
+  const n = sel.size;
+  $("#resumo").innerHTML = n ? "<strong>"+n+(n===1?" serviço":" serviços")+"</strong>"+textoTotal() : "<strong>Monte seu horário</strong>Toque no + dos serviços";
+}
+
+/* diálogo de pedido */
+function desenharPedido(){
+  $("#escolhidos").innerHTML = sel.size ? [...sel].map(i=>'<li><span>'+SERVICOS[i][1]+'<button type="button" data-r="'+i+'">remover</button></span><span>'+(SERVICOS[i][3]===null?"sob avaliação":brl(SERVICOS[i][3]))+'</span></li>').join("")
+    : '<li>Nenhum serviço escolhido ainda. Você pode enviar o pedido assim mesmo e combinar pelo WhatsApp.</li>';
+  $("#total").textContent = sel.size ? textoTotal() : "a combinar";
+}
+$("#abrir").addEventListener("click",()=>{desenharPedido(); $("#dlg").showModal();});
+$("#escolhidos").addEventListener("click",e=>{const b=e.target.closest("[data-r]"); if(!b) return; sel.delete(+b.dataset.r); desenharPedido(); desenharLista(); resumo();});
+$("#prof").innerHTML = '<option>Sem preferência</option>' + EQUIPE.map(p=>'<option>'+p[0]+'</option>').join("");
+$("#dia").min = new Date().toISOString().slice(0,10);
+$("#dlg").addEventListener("close",()=>{
+  if($("#dlg").returnValue !== "enviar") return;
+  const nome = $("#nome").value.trim(), dia = $("#dia").value;
+  let t = "Olá! Vi o guia do " + CONFIG.salao + " e quero pedir um horário.\n";
+  if(sel.size){ t += "\nServiços:\n" + [...sel].map(i=>"- "+SERVICOS[i][1]).join("\n") + "\nEstimativa: " + textoTotal() + "\n"; }
+  if(nome) t += "\nNome: " + nome;
+  if(dia) t += "\nDia preferido: " + dia.split("-").reverse().join("/");
+  t += "\nPeríodo: " + $("#periodo").value + "\nProfissional: " + $("#prof").value;
+  window.open(zap(CONFIG.whatsappSalao, t), "_blank", "noopener");
+});
+
+/* cuidados por tipo de fio */
+let tipoAtual = "Ondulado";
+function desenharTipos(){
+  $("#tipos").innerHTML = Object.keys(TIPOS).map(t=>'<button class="tipo" role="tab" aria-selected="'+(t===tipoAtual)+'" data-t="'+t+'"><svg viewBox="0 0 38 48" aria-hidden="true"><path d="'+TIPOS[t].d+'"/></svg>'+t+'</button>').join("");
+  const r = TIPOS[tipoAtual];
+  $("#rotina").innerHTML = '<div><h3>Lavar</h3><p>'+r.lavar+'</p></div><div><h3>Tratar</h3><p>'+r.tratar+'</p></div><div><h3>Finalizar</h3><p>'+r.finalizar+'</p></div><div class="evite"><h3>Evite</h3><p>'+r.evite+'</p></div>';
+}
+$("#tipos").addEventListener("click",e=>{const b=e.target.closest(".tipo"); if(!b) return; tipoAtual=b.dataset.t; desenharTipos();});
+
+/* equipe, contatos */
+$("#equipeLista").innerHTML = EQUIPE.map(p=>'<article class="pessoa"><div class="av" style="background:'+p[4]+'">'+p[0].split(" ").map(x=>x[0]).join("")+'</div><h3>'+p[0]+'</h3><p>'+p[1]+'. '+p[2]+'</p><p class="dias">'+p[3]+'</p></article>').join("");
+$("#endereco").textContent = CONFIG.endereco;
+$("#falar").href = zap(CONFIG.whatsappSalao, "Olá! Vi o guia do " + CONFIG.salao + " e tenho uma dúvida.");
+$("#querer").href = zap(CONFIG.whatsappKaissara, "Olá! Vi o guia de amostra do salão e quero um guia assim para o meu negócio.");
+
+/* destaque da seção atual na navegação */
+const links = [...document.querySelectorAll(".nav a")];
+const obs = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting) links.forEach(a=>a.classList.toggle("ativo", a.getAttribute("href")==="#"+e.target.id)); }),{rootMargin:"-45% 0px -50% 0px"});
+document.querySelectorAll("main section").forEach(s=>obs.observe(s));
+
+desenharAbas(); desenharLista(); desenharTipos(); resumo();
+</script>
+</body>
+</html>
